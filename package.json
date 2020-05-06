@@ -1,7 +1,10 @@
 {
-  "name": "cmake-binaries",
-  "version": "1.0.5-2",
+  "name": "@zcbenz/cmake-binaries",
+  "version": "1.3.17-2",
   "description": "cmake binaries for npm",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "index.js",
   "os": [
     "win32",
@@ -12,9 +15,11 @@
     "x64",
     "x32"
   ],
-  "engines" : { "node" : ">=6.4.0" },
-  "cmake_version_base": "3.10",
-  "cmake_version_rev": "1",
+  "engines": {
+    "node": ">=6.4.0"
+  },
+  "cmake_version_base": "3.17",
+  "cmake_version_rev": "2",
   "scripts": {
     "preinstall": "node preinstall.js",
     "prepublishOnly": "node prepublish.js"
@@ -24,26 +29,14 @@
     "cpack": "bin/cpack",
     "ctest": "bin/ctest",
     "ccmake": "bin/ccmake",
-    "cmakexbuild": "bin/cmakexbuild",
     "cmake-gui": "bin/cmake-gui",
     "cmcldeps": "bin/cmcldeps"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DayBr3ak/cmake-binaries.git"
-  },
   "author": "DayBr3ak <not-an-email-yet>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/DayBr3ak/cmake-binaries/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yue/cmake-binaries.git"
   },
-  "homepage": "https://github.com/DayBr3ak/cmake-binaries#readme",
-  "devDependencies": {},
-  "dependencies": {
-    "decompress": "^4.2.0",
-    "gauge": "^2.7.4",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.2",
-    "tar": "^4.2.0"
-  }
+  "homepage": "https://github.com/yue/cmake-binaries"
 }

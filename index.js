@@ -19,7 +19,6 @@ const procs = [
   { p: 'ctest' },
 
   { p: 'ccmake', os: ['linux', 'darwin'] },
-  { p: 'cmakexbuild', os: ['darwin'] },
   { p: 'cmake-gui', os: ['linux', 'win32'], n: 'cmakeGui' },
   { p: 'cmcldeps', os: ['win32'] }
 ];

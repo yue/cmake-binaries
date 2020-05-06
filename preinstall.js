@@ -1,15 +1,15 @@
 const { promisify } = require('util');
 const zlib = require('zlib');
-const tar = require('tar');
-const Gauge = require('gauge');
+const tar = require('./deps/tar');
+const Gauge = require('./deps/gauge');
 const path = require('path');
 const http = require('https');
 
 const writeFile = promisify(require('fs').writeFile);
 const link = promisify(require('fs').link);
-const rimraf = promisify(require('rimraf'));
-const mkdirp = promisify(require('mkdirp'));
-const decompress = require('decompress');
+const rimraf = promisify(require('./deps/rimraf'));
+const mkdirp = promisify(require('./deps/mkdirp'));
+const decompress = require('./deps/decompress');
 
 const package = require('./package.json');
 const VERSION_BASE = package['cmake_version_base'];
@@ -126,9 +126,10 @@ const unzip = isTar ?
 const url = archiveToUrl(archive);
 
 init()
+  .then(() => rimraf(outPath))
   .then(() => mkdirp(outPath))
+  .then(() => rimraf(linkPath))
   .then(() => mkdirp(linkPath))
-  .then(() => rimraf(path.join(outPath, '*')))
   .then(() => fetchBuffer(url))
   .then(b => writeFile(tempPath, b, 'binary'))
   .then(() => unzip(tempPath, outPath))
